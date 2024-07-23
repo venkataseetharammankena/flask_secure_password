@@ -1,0 +1,23 @@
+body {
+    background-color: #f9fbfd;
+    font-family: monospace;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+header {
+    color: #0d97ce;
+    text-align: center;
+    font-size: 75px;
+    font-weight: bolder;
+}
+
+div {
+    margin-top: 10px;
+    margin-bottom:10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

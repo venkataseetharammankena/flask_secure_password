@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}Password Generator{% endblock title %}
+{% block body %}
+    <div style="margin-right: 250px; margin-left: 250px;margin-top: 50px;text-align: center;">
+        <h1 style="font-weight: bold">Generate a Secure Password</h1>
+        <p>Use this tool to generate secure, random passwords instantly</p>
+        <hr>
+    </div>
+    <div>
+        <form action="/generate/" method="POST">
+            <div style="text-align: center;margin-top: 50px;">
+                <h4>{{ secure_password }}</h4>
+                <input type="submit" name="submit" value="Generate Password">
+                <a href="/copy/"><input type="button" name="copy" value="Copy"></a>
+            </div>
+            <div style="margin-left: 250px;margin-right: 250px;margin-top: 50px">
+                <h2>Customize Your Password</h2>
+                <hr>
+                <div style="text-align: center;float: left;margin-left: 50px;">
+                    <label for="len_range" class="form-label">Password Length (4-25)</label>
+                    <input type="range" class="form-range" id="len_range" name="len_range" min="4" max="25" value="{{ len_range_value }}">
+                </div>
+                <div style="float: right;margin-right: 50px;">
+                    {% if "uppercase" in chars %}
+                        <input type="checkbox" name="char_box" value="uppercase" checked>
+                        <label>Uppercase Alphabets</label><br>
+                    {% else %}
+                        <input type="checkbox" name="char_box" value="uppercase">
+                        <label>Uppercase Alphabets</label><br>
+                    {% endif %}
+                    {% if "lowercase" in chars %}
+                        <input type="checkbox" name="char_box" value="lowercase" checked>
+                        <label>Lowercase Alphabets</label><br>
+                    {% else %}
+                        <input type="checkbox" name="char_box" value="lowercase">
+                        <label>Lowercase Alphabets</label><br>
+                    {% endif %}
+                    {% if "digits" in chars %}
+                        <input type="checkbox" name="char_box" value="digits" checked>
+                        <label>Digits</label><br>
+                    {% else %}
+                        <input type="checkbox" name="char_box" value="digits">
+                        <label>Digits</label><br>
+                    {% endif %}
+                    {% if "symbols" in chars %}
+                        <input type="checkbox" name="char_box" value="symbols" checked>
+                        <label>Symbols</label><br>
+                    {% else %}
+                        <input type="checkbox" name="char_box" value="symbols">
+                        <label>Symbols</label><br>
+                    {% endif %}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock body %}
